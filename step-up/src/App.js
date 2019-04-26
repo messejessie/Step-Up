@@ -6,10 +6,7 @@ function App() {
     <Router>
     <div>
       <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
+          <li>
           <Link to="/signup">Sign Up</Link>
         </li>
         <li>
