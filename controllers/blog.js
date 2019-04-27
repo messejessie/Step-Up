@@ -16,10 +16,14 @@ module.exports = {
     create: function (req, res) {
         db.Blog
             .create(req.body)
-            .then(dbModel => res.json(dbModel))
+            .then(dbModel => { 
+            db.Member.findOneAndUpdate({}, 
+            { $push: { Blogs: dbBlog._id } }, { new: true });
+                    res.json(dbModel); 
+                })
             .catch(err => res.status(422).json(err));
-    },
-    
+},
+
     update: function (req, res) {
         db.Blog
             .findOneAndUpdate({ _id: req.params.id }, req.body)
