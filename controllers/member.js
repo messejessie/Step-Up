@@ -9,6 +9,7 @@ module.exports = {
     findById: function (req, res) {
         db.Member
             .findById(req.params.id)
+            .populate("blogs")
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
@@ -18,6 +19,14 @@ module.exports = {
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
+    remove: function(req, res) {
+        db.Member
+          .findById({ _id: req.params.id })
+          .then(dbModel => dbModel.remove())
+          .then(dbModel => res.json(dbModel))
+          .catch(err => res.status(422).json(err));
+      }
 };
+
 
 

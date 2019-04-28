@@ -16,9 +16,9 @@ function App() {
 
       <hr />
 
-      {/* <Route exact path="/" component={Home} />
-      <Route path="/about" component={About} />
-      <Route path="/topics" component={Topics} /> */}
+      <Route exact path="/" component={Home} />
+      <Route path="/signup" component={About} />
+      <Route path="/topics" component={Topics} />
     </div>
   </Router>
   );

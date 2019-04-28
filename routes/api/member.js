@@ -11,5 +11,5 @@ router
   .route("/:id")
   .get(memberController.findById)
   .put(memberController.update)
-
+  .delete(memberController.remove);
 module.exports = router;
