@@ -1,16 +1,32 @@
-import React, {Component} from 'react';
-//import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 //import { Button } from 'reactstrap';
-import Example from "../src/component/Jumbotron"
-import MainNav from "../src/component/nav"
-
+//import MainNav from "../src/component/nav"
+// import Home from '../src/component/Jumbotron';
+import HomePage from './Pages/Home';
+import MainNav from './component/nav';
+// import LogIn from './Pages/login';
+// import SignUp from './Pages/SignUp';
 
 class App extends Component {
-  render () {
+  render() {
     return (
       <div className="app">
-      <MainNav />
-      <Example />
+        <Router>
+          <div>
+          <MainNav>
+          <Link to="/">Home</Link>
+          {/* <Link to="/login">Log in</Link> */}
+          </MainNav>
+            <main>
+              <Switch>
+                <Route exact path="/" component={HomePage} />
+                {/* <Route path="/login" component={LogIn} /> */}
+              </Switch>
+            </main>
+          </div>
+        </Router>
+
       </div>
     )
   }
