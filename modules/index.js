@@ -1,5 +1,5 @@
 module.exports = {
-    Member: require("./profile"),
+    Member: require("./member"),
     Blog: require("./blog")
   };
   
