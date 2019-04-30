@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Col, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 class SignUp extends React.Component {
   constructor(props) {
@@ -22,16 +22,50 @@ class SignUp extends React.Component {
       <div>
         <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-          <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
+          <ModalHeader toggle={this.toggle}>Sign Up</ModalHeader>
           <ModalBody>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <Form>
+              <FormGroup row>
+                <Label for="Name" sm={2}>Name</Label>
+                <Col sm={10}>
+                  <Input type="Name" name="Name" id="Name" placeholder="with a placeholder" />
+                </Col>
+              </FormGroup>
+              <FormGroup>
+                <Label for="Email" sm={2}>Email</Label>
+                <Col sm={10}>
+                  <Input type="Email" name="Email" id="Email" placeholder="with a placeholder" />
+                </Col>
+              </FormGroup>
+              <FormGroup>
+                <Label for="Age" sm={2}>Age</Label>
+                <Col sm={10}>
+                  <Input type="Age" name="Age" id="Age" placeholder="with a placeholder" />
+                </Col>
+              </FormGroup>
+              <FormGroup>
+                <Label for="Username" sm={2}>Email</Label>
+                <Col sm={10}>
+                  <Input type="Username" name="Username" id="Username" placeholder="with a placeholder" />
+                </Col>
+              </FormGroup>
+              <FormGroup row>
+                <Label for="Password" sm={2}>Password</Label>
+                <Col sm={10}>
+                  <Input type="Password" name="Password" id="Password" placeholder="password placeholder" />
+                </Col>
+              </FormGroup>
+            </Form>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
-            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+            <FormGroup check row>
+              <Col sm={{ size: 10, offset: 2 }}>
+                <Button herf='/aboutus'>Submit</Button>
+              </Col>
+            </FormGroup>
           </ModalFooter>
         </Modal>
-      </div>
+      </div >
     );
   }
 }
