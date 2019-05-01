@@ -1,5 +1,6 @@
 import React from '../../node_modules/react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Col, Form, FormGroup, Label, Input, FormText } from '../../node_modules/reactstrap/lib';
+import axios from 'axios';
 
 class SignUp extends React.Component {
   constructor(props) {

@@ -9,12 +9,7 @@ import SignUp from './SignUp'
 
 
 class HomePage extends Component {
-    state = {
-        username: "",
-        password: ""
-    }
-
-
+    
 render() {
     return (
         <div>
