@@ -1,4 +1,4 @@
-import React from 'react';
+import React from '../../node_modules/react';
 import {
   Collapse,
   Navbar,
@@ -10,7 +10,7 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem } from 'reactstrap';
+  DropdownItem } from '../../node_modules/reactstrap/lib';
 
 export default class MainNav extends React.Component {
   constructor(props) {

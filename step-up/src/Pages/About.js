@@ -1,6 +1,6 @@
-import React from 'react';
+import React from '../../node_modules/react';
 import { Card, CardText, CardBody,
-  CardTitle, Button } from 'reactstrap';
+  CardTitle, Button } from '../../node_modules/reactstrap/lib';
 
 const About = () => {
   return (
