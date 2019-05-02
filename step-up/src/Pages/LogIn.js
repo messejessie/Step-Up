@@ -1,5 +1,7 @@
-import React from '../../node_modules/react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input } from '../../node_modules/reactstrap/lib';
+import React from 'react';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+//import SignUpForm from '../component/signForm';
+import LogInForm from '../component/logForm';
 
 class LogIn extends React.Component {
   constructor(props) {
@@ -24,19 +26,11 @@ class LogIn extends React.Component {
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>Log In</ModalHeader>
           <ModalBody>
-            <Form inline>
-              <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                <Label for="exampleEmail" className="mr-sm-2">Email</Label>
-                <Input type="email" name="email" id="exampleEmail" placeholder="something@idk.cool" />
-              </FormGroup>
-              <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                <Label for="examplePassword" className="mr-sm-2">Password</Label>
-                <Input type="password" name="password" id="examplePassword" placeholder="don't tell!" />
-              </FormGroup>
-            </Form>
+            <LogInForm />
           </ModalBody>
           <ModalFooter>
-            <Button>Submit</Button>
+            <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
+            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
           </ModalFooter>
         </Modal>
       </div>
