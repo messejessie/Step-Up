@@ -8,7 +8,7 @@ export default class SignUpForm extends React.Component {
         email: '',
         username: '',
         password:'',
-        email: ''
+        age: ''
     }
 
     // componentDidMount(){
@@ -29,27 +29,28 @@ export default class SignUpForm extends React.Component {
     }
 
     render() {
+        const { name, email, username, password, age } = this.state;
         return (
             <Form onSubmit={this.handleRegister}>
                 <FormGroup>
                     <Label >Name: </Label>
-                    <Input type="text" name="name" id="name" placeholder="Name" onChange={this.handleChange}/>
+                    <Input type="text" name="name" id="name" value={name} placeholder="Name" onChange={this.handleChange}/>
                 </FormGroup>
                 <FormGroup>
                     <Label >Email: </Label>
-                    <Input type="email" name="email" id="email" placeholder="Email" onChange={this.handleChange} />
+                    <Input type="email" name="email" id="email" value={email} placeholder="Email" onChange={this.handleChange} />
                 </FormGroup>
                 <FormGroup>
                     <Label > UserName: </Label>
-                    <Input type="text" name="username" id="username" placeholder="Username" onChange={this.handleChange}/>
+                    <Input type="text" name="username" id="username" value={username} placeholder="Username" onChange={this.handleChange}/>
                 </FormGroup>
                 <FormGroup>
                     <Label for="examplePassword">Password: </Label>
-                    <Input type="password" name="password" id="examplePassword" placeholder="Placeholder" onChange={this.handleChange}/>
+                    <Input type="password" name="password" id="examplePassword" value={password} placeholder="Password" onChange={this.handleChange}/>
                 </FormGroup>
                 <FormGroup>
                     <Label >Age: </Label>
-                    <Input type="text" name="age" id="age" placeholder="Age" onChange={this.handleChange}/>
+                    <Input type="text" name="age" id="age" placeholder="Age" value={age} onChange={this.handleChange}/>
                 </FormGroup>
                 <Button>Submit</Button>
             </Form>

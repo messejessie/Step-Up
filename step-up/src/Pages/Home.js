@@ -1,7 +1,7 @@
 import React, { Component } from '../../node_modules/react';
 //import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 //import { Button } from 'reactstrap';
-import { Jumbotron} from '../../node_modules/reactstrap/lib';
+import { Jumbotron } from '../../node_modules/reactstrap/lib';
 import LogIn from './LogIn';
 import SignUp from './SignUp'
 //import MainNav from "../component/nav"

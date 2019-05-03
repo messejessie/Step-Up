@@ -8,6 +8,7 @@ import MainNav from './component/nav';
 // import LogIn from './Pages/login';
 // import SignUp from './Pages/SignUp';
 import About from './Pages/About';
+import Profile from './Pages/Profile'
 
 class App extends Component {
   render() {
@@ -22,7 +23,8 @@ class App extends Component {
             <main>
               <Switch>
                 <Route exact path="/" component={HomePage} />
-                <Route exact path="/aboutus" component={About} />
+                <Route  path="/aboutus" component={About} />
+                <Route path="/profile"  component={Profile} />
                 {/* <Route path="/login" component={LogIn} /> */}
               </Switch>
             </main>
