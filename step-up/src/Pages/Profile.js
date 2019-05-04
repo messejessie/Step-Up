@@ -1,5 +1,5 @@
-import React, { Component } from '../../node_modules/react';
-import ProfileBlog from '../component/blogCard'
+import React, { Component } from 'react';
+import ProfileBlogCard from '../component/profileBlogCard'
 import ProfileJumbo from '../component/profileJumbo'
 class Profile extends Component {
 
@@ -8,7 +8,7 @@ class Profile extends Component {
         <div>
          <ProfileJumbo />
          <br />
-        <ProfileBlog />
+        <ProfileBlogCard />
           
         </div>
       )

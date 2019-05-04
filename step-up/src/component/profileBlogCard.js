@@ -1,8 +1,8 @@
-import React from '../../node_modules/react';
+import React from 'react';
 import { Card, CardText, CardBody,
-  CardTitle, Button } from '../../node_modules/reactstrap/lib';
+  CardTitle, Button } from 'reactstrap';
 
-const ProfileBlog = () => {
+const ProfileBlogCard = () => {
   return (
     <div>
       <Card>
@@ -17,4 +17,4 @@ const ProfileBlog = () => {
   );
 };
 
-export default ProfileBlog;
+export default ProfileBlogCard;

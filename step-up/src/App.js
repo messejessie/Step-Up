@@ -9,7 +9,7 @@ import MainNav from './component/nav';
 // import SignUp from './Pages/SignUp';
 import About from './Pages/About';
 import Profile from './Pages/Profile'
-
+import BlogPage from './Pages/BlogPage'
 class App extends Component {
   render() {
     return (
@@ -25,6 +25,7 @@ class App extends Component {
                 <Route exact path="/" component={HomePage} />
                 <Route  path="/aboutus" component={About} />
                 <Route path="/profile"  component={Profile} />
+                <Route path="/blog"  component={BlogPage} />
                 {/* <Route path="/login" component={LogIn} /> */}
               </Switch>
             </main>
