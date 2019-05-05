@@ -31,11 +31,11 @@ export default class LogInForm extends React.Component {
             <Form onSubmit={this.handleLogIn}>
                 <FormGroup>
                     <Label > UserName: </Label>
-                    <Input type="text" value={username} id="username" placeholder="Username" onChange={this.handleChange} />
+                    <Input type="text" name= "username" value={username} id="username" placeholder="Username" onChange={this.handleChange} />
                 </FormGroup>
                 <FormGroup>
                     <Label for="examplePassword">Password: </Label>
-                    <Input type="password" value={password} id="examplePassword" placeholder="Placeholder" onChange={this.handleChange} />
+                    <Input type="password" name="password" value={password} id="examplePassword" placeholder="Placeholder" onChange={this.handleChange} />
                 </FormGroup>
                 <Button>Submit</Button>
             </Form>
