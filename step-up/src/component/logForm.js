@@ -5,7 +5,8 @@ import axios from 'axios';
 export default class LogInForm extends React.Component {
     state = {
         username: '',
-        password: ''
+        password: '',
+        memberid: ''
     }
 
     // componentDidMount(){
@@ -22,16 +23,26 @@ export default class LogInForm extends React.Component {
     handleLogIn = event => {
         event.preventDefault();
         axios.get('/api/member', this.state)
-            .then(response => console.log(response));
+            .then(response => {
+                sessionStorage.setItem('authenticated', true);
+                this.setState({
+                    memberid: response.data._id,
+                }, () => {
+                    this.props.history.push({
+                        pathname: '/profile',
+                        state: {memberid: this.state.memberid}
+                    })
+                })
+            });
     }
 
     render() {
-        const {username, password} = this.state
+        const { username, password } = this.state
         return (
             <Form onSubmit={this.handleLogIn}>
                 <FormGroup>
                     <Label > UserName: </Label>
-                    <Input type="text" name= "username" value={username} id="username" placeholder="Username" onChange={this.handleChange} />
+                    <Input type="text" name="username" value={username} id="username" placeholder="Username" onChange={this.handleChange} />
                 </FormGroup>
                 <FormGroup>
                     <Label for="examplePassword">Password: </Label>
