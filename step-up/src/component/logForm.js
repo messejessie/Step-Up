@@ -1,9 +1,10 @@
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import axios from 'axios';
+//import axios from 'axios';
+import apiMember from '../utils/apiMember'
 
 export default class LogInForm extends React.Component {
-    state = {
+    state = { 
         username: '',
         password: '',
         memberid: ''
@@ -22,7 +23,7 @@ export default class LogInForm extends React.Component {
 
     handleLogIn = event => {
         event.preventDefault();
-        axios.get('/api/member', this.state)
+        apiMember.getMember('/api/member', this.state)
             .then(response => {
                 sessionStorage.setItem('authenticated', true);
                 this.setState({
@@ -39,7 +40,7 @@ export default class LogInForm extends React.Component {
     render() {
         const { username, password } = this.state
         return (
-            <Form onSubmit={this.handleLogIn}>
+            <Form>
                 <FormGroup>
                     <Label > UserName: </Label>
                     <Input type="text" name="username" value={username} id="username" placeholder="Username" onChange={this.handleChange} />
@@ -48,7 +49,7 @@ export default class LogInForm extends React.Component {
                     <Label for="examplePassword">Password: </Label>
                     <Input type="password" name="password" value={password} id="examplePassword" placeholder="Placeholder" onChange={this.handleChange} />
                 </FormGroup>
-                <Button>Submit</Button>
+                <Button onSubmit={this.handleLogIn}>Submit</Button>
             </Form>
         );
     }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import axios from 'axios';
+//import axios from 'axios';
+import apiMember from '../utils/apiMember';
 
 export default class SignUpForm extends React.Component {
     state = {
@@ -24,7 +25,7 @@ export default class SignUpForm extends React.Component {
 
     handleRegister = event => {
         event.preventDefault();
-        axios.post('/api/member', this.state)
+        apiMember.saveMember('/api/member', this.state)
         .then(response => console.log(response));
     }
 
