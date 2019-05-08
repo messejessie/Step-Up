@@ -1,60 +1,35 @@
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 //import axios from 'axios';
-import apiMember from '../utils/apiMember';
+//import apiMember from '../utils/apiMember';
 
-export default class SignUpForm extends React.Component {
-    state = {
-        name: '',
-        email: '',
-        username: '',
-        password:'',
-        age: ''
-    }
-
-    // componentDidMount(){
-        // this.setState
-    // }
-
-    handleChange = event => {
-        const {name, value} = event.target;
-        this.setState({
-            [ name ]: value
-        });
-    }
-
-    handleRegister = event => {
-        event.preventDefault();
-        apiMember.saveMember('/api/member', this.state)
-        .then(response => console.log(response));
-    }
-
-    render() {
-        const { name, email, username, password, age } = this.state;
+const SignUpForm = (props) => {
+    
         return (
-            <Form onSubmit={this.handleRegister}>
+            <Form >
                 <FormGroup>
                     <Label >Name: </Label>
-                    <Input type="text" name="name" id="name" value={name} placeholder="Name" onChange={this.handleChange}/>
+                    <Input type="text" name="name" id="name" value={props.name} placeholder="Name" onChange={props.handleChange}/>
                 </FormGroup>
                 <FormGroup>
                     <Label >Email: </Label>
-                    <Input type="email" name="email" id="email" value={email} placeholder="Email" onChange={this.handleChange} />
+                    <Input type="email" name="email" id="email" value={props.email} placeholder="Email" onChange={props.handleChange} />
                 </FormGroup>
                 <FormGroup>
                     <Label > UserName: </Label>
-                    <Input type="text" name="username" id="username" value={username} placeholder="Username" onChange={this.handleChange}/>
+                    <Input type="text" name="username" id="username" value={props.username} placeholder="Username" onChange={props.handleChange}/>
                 </FormGroup>
                 <FormGroup>
                     <Label for="examplePassword">Password: </Label>
-                    <Input type="password" name="password" id="examplePassword" value={password} placeholder="Password" onChange={this.handleChange}/>
+                    <Input type="password" name="password" id="examplePassword" value={props.password} placeholder="Password" onChange={props.handleChange}/>
                 </FormGroup>
                 <FormGroup>
                     <Label >Age: </Label>
-                    <Input type="text" name="age" id="age" placeholder="Age" value={age} onChange={this.handleChange}/>
+                    <Input type="text" name="age" id="age" placeholder="Age" value={props.age} onChange={props.handleChange}/>
                 </FormGroup>
-                <Button>Submit</Button>
+                <Button onClick={props.handleRegister}>Submit</Button>
             </Form>
         );
     }
-}
+    
+export default SignUpForm;

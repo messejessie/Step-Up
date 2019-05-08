@@ -6,8 +6,13 @@ export default {
     return axios.get("/api/member");
   },
   // Gets the member with the given id
-  getMember: function(id) {
-    return axios.get("/api/member/" + id);
+  // getMember: function(data) {
+  //   console.log('data', data);
+  //   return axios.post("/api/member", data);
+  // },
+  signInMember: function(data) {
+    console.log('data', data);
+    return axios.post("/api/member", data);
   },
 //   getMemberPopulatePostings: function(id){
 //    return axios.get("api/populatedmember");
@@ -19,6 +24,6 @@ export default {
   },
   // Saves a member to the database
   saveMember: function(memberData) {
-    return axios.post("/api/member", memberData);
+    return axios.post("/api/member/" + memberData.id, memberData);
   }
 };

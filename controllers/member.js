@@ -6,6 +6,13 @@ module.exports = {
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
+    findOne: function (req, res) {
+        console.log('req/body', req.body);
+        db.Member
+            .find({ username: req.body.username, password: req.body.password})
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+    },
     findById: function (req, res) {
         db.Member
             .findById(req.params.id)
@@ -14,10 +21,11 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     create: function (req, res) {
+        console.log('req.body', req.body);
         db.Member
             .create(req.body)
             .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err));
+            .catch(err => console.log(err));
     },
     remove: function (req, res) {
         db.Member
