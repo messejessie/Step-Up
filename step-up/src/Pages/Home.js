@@ -40,33 +40,45 @@ class HomePage extends Component {
   handleRegister = event => {
     console.log('this state', this.state);
     const memberData = { name: this.state.name, email: this.state.email, age: this.state.age, username: this.state.username, password: this.state.password };
-    console.log('member data',memberData);
+    console.log('member data', memberData);
     event.preventDefault();
     apiMember.saveMember(memberData)
-    .then(response => console.log(response));
+      .then(response => {
+        sessionStorage.setItem('authenticated', true);
+        this.setState({
+          memberid: response.data._id,
+        }, () => {
+          this.props.history.push({
+            pathname: '/aboutus',
+            state: { memberid: this.state.memberid }
+          })
+        })
+
+        console.log(response)
+      });
   }
 
-handleLogin = event => {
-          event.preventDefault();
-          //console.log('this state', this.state);
-          const data = { username: this.state.username, password: this.state.password };
-          apiMember.signInMember(data)
-            .then(response => {
-              sessionStorage.setItem('authenticated', true);
-              this.setState({
-                memberid: response.data._id,
-              }, () => {
-                this.props.history.push({
-                  pathname: '/profile',
-                  state: { memberid: this.state.memberid }
-                })
-              })
-            });
-        }
+  handleLogin = event => {
+    event.preventDefault();
+    //console.log('this state', this.state);
+    const data = { username: this.state.username, password: this.state.password };
+    apiMember.signInMember(data)
+      .then(response => {
+        sessionStorage.setItem('authenticated', true);
+        this.setState({
+          memberid: response.data._id,
+        }, () => {
+          this.props.history.push({
+            pathname: '/profile',
+            state: { memberid: this.state.memberid }
+          })
+        })
+      });
+  }
 
   render() {
-          console.log('the state', this.state);
-          return(
+    console.log('the state', this.state);
+    return (
       <div>
         <Modal isOpen={this.state.showLoginModal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>Log In</ModalHeader>
