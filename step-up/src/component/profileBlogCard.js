@@ -1,20 +1,40 @@
 import React from 'react';
-import { Card, CardText, CardBody,
-  CardTitle, Button } from 'reactstrap';
+import {
+  Card, CardText, CardBody,
+  CardTitle, Button
+} from 'reactstrap';
+import { Redirect } from 'react-router-dom';
 
-const ProfileBlogCard = () => {
-  return (
-    <div>
-      <Card>
-        {/* <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" /> */}
-        <CardBody>
-          <CardTitle>Congrats on Today</CardTitle>
-          <CardText>Lets Celebrate and Plan for tomorrow or the day!</CardText>
-          <Button>New Blog Post</Button>
-        </CardBody>
-      </Card>
-    </div>
-  );
-};
+class ProfileBlogCard extends React.Component {
+  state = {
+    redirect: false
+  }
+  setRedirect = () => {
+    this.setState({
+      redirect: true
+    })
+  }
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to='/blog' />
+    }
+  }
+  render() {
+    return (
+      <div>
+        <Card>
+          <CardBody>
+            <CardTitle>Congrats on Today</CardTitle>
+            <CardText>Lets Celebrate and Plan for tomorrow or the day!</CardText>
+            {this.renderRedirect()}
+            <Button onClick={this.setRedirect}>New Blog Post</Button>
+          </CardBody>
+        </Card>
+      </div>
+    );
+  }
+
+}
+
 
 export default ProfileBlogCard;

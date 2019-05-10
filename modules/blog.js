@@ -15,7 +15,7 @@ const blogSchema = new Schema({
         type: String,
         trim: true 
     },
-    affermations: {
+    affirmations: {
         type: String,
         trim: true 
     }
