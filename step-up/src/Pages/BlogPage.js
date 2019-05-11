@@ -13,9 +13,9 @@ class BlogPage extends Component {
     }
     
     handleChange = event => {
-        const { name, value } = event.target;
+        const {name, value} = event.target 
         this.setState({
-          [name]: value
+             [ name ]: value
         });
       }
 
@@ -41,9 +41,12 @@ class BlogPage extends Component {
      }
 
     render() {
+
+        console.log(this.state)
         return (
             <div>
                 <MainBlog 
+                handleChange = {this.handleChange}
                 handleBlog={this.handleBlog}
                 freeform={this.state.freeform}
                 goals={this.state.goals}

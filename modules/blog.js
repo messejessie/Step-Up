@@ -18,7 +18,12 @@ const blogSchema = new Schema({
     affirmations: {
         type: String,
         trim: true 
+    },
+    memberid:{ 
+        type: Schema.Types.ObjectId,
+        ref:"member"
     }
+
 });
 
 const Blog = mongoose.model("blog",blogSchema);
