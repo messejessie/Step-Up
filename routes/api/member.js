@@ -11,8 +11,11 @@ router.route("/")
 // Matches with "/api/member/:id"
 router
   .route("/:id")
-  .get(memberController.findById)
+  //.get(memberController.findById)
   //.put(memberController.update)
   .post(memberController.create)
   .delete(memberController.remove);
-module.exports = router;
+
+  // router.route("/populatedmember")
+  // .get(memberController.getPopulateBlogs);;
+  module.exports = router;

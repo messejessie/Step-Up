@@ -29,11 +29,11 @@ const memberSchema = new Schema({
     age: Number,
     blog: {
         type: Schema.Types.ObjectId,
-        ref: "Blog"
+        ref: "blogs"
     }
 
 });
 
-const User = mongoose.model("member", memberSchema);
+const Member = mongoose.model("member", memberSchema);
 
-module.exports = User;
+module.exports = Member;

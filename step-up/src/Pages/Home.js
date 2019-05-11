@@ -64,17 +64,12 @@ class HomePage extends Component {
     const data = { username: this.state.username, password: this.state.password };
     apiMember.signInMember(data)
       .then(response => {
+        console.log('response', response);
         sessionStorage.setItem('authenticated', true);
-        this.setState({
-          memberid: response.data._id,
-        }, () => {
-          this.props.history.push({
-            pathname: '/profile',
-            state: { memberid: this.state.memberid }
-          })
-        })
-      });
-  }
+        sessionStorage.setItem('memberid', response.data[0]._id);
+        this.props.history.push('/profile');
+  });
+}
 
   render() {
     console.log('the state', this.state);

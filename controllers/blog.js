@@ -14,14 +14,16 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     create: function (req, res) {
+        console.log('the body coming in ', req.body);
         db.Blog
             .create(req.body)
             .then(dbModel => { 
-            db.Member.findOneAndUpdate({}, 
-            { $push: { Blogs: dbBlog._id } }, { new: true });
-                    res.json(dbModel); 
-                })
-            .catch(err => res.status(422).json(err));
+            db.Member.findOneAndUpdate({ _id: req.params.id}, 
+            { $push: { "blog": dbModel._id } }, { new: true }, (err, newBlog) => {
+                res.send(newBlog);
+            });
+                })  
+            .catch(err => console.log('the err', err));
 },
 
     update: function (req, res) {
@@ -36,6 +38,7 @@ module.exports = {
           .then(dbModel => dbModel.remove())
           .then(dbModel => res.json(dbModel))
           .catch(err => res.status(422).json(err));
-      }
+      },
+      
 };
 
