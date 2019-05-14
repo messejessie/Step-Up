@@ -66,7 +66,7 @@ class HomePage extends Component {
       .then(response => {
         console.log('response', response);
         sessionStorage.setItem('authenticated', true);
-        sessionStorage.setItem('memberid', response.data[0]._id);
+        sessionStorage.setItem('memberid', response.data._id);
         this.props.history.push('/profile');
   });
 }
