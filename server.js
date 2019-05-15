@@ -9,7 +9,7 @@ mongoose.connect("mongodb://localhost/StepUp", { useNewUrlParser: true , useCrea
 
 let databaseUrl = 'https://www.mlab.com/databases/heroku_jjwjgwvk'
 // Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
+if (process.env.MONGODB_URI === "production") {
   app.use(express.static("step-up/build"));
 } else{
   mongoose.connect(databaseUrl);
