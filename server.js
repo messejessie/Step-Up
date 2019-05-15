@@ -10,11 +10,6 @@ const mongoose = require('mongoose');
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("step-up/build"));
 }
-
-app.use(bodyParser.urlencoded({
-  extend: false
-}));
-
 app.use(express.static('public'));
 
 let databaseUrl = 'mongodb://localhost/StepUp';
