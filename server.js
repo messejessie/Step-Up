@@ -7,7 +7,7 @@ const apiBlogRoutes = require('./routes/api/blog');
 const mongoose = require('mongoose');
 mongoose.connect("mongodb://localhost/StepUp", { useNewUrlParser: true , useCreateIndex: true });
 
-let databaseUrl = 'https://www.mlab.com/databases/heroku_jjwjgwvk'
+let databaseUrl = 'mongodb://localhost/StepUp'
 // Serve up static assets (usually on heroku)
 if (process.env.MONGODB_URI === "production") {
   app.use(express.static("step-up/build"));
