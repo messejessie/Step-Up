@@ -58,19 +58,26 @@ class HomePage extends Component {
       });
   }
 
+  
   handleLogin = event => {
     event.preventDefault();
     //console.log('this state', this.state);
     const data = { username: this.state.username, password: this.state.password };
+    // const vaild = { username: this.state.username, password: this.state.password };
     apiMember.signInMember(data)
-      .then(response => {
+      .then(response => { 
+        // if(data !== vaild){
+        //   alert("Incorrect Username or password")
+        // }else{
         console.log('response', response);
         sessionStorage.setItem('authenticated', true);
-        sessionStorage.setItem('memberid', response.data._id);
+        sessionStorage.setItem('memberid', response.data[0]._id);
         this.props.history.push('/profile');
-  });
-}
+        // }
+      });
 
+}
+  
   render() {
     console.log('the state', this.state);
     return (
