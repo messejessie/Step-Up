@@ -21,15 +21,15 @@ if(process.env.MONGODB_URI){
 
 }
 
-let db = mongoose.connection;
+// let db = mongoose.connection;
 
-db.on('error', function(err){
-  console.log('Mongoose Error: ', err);
-});
+// db.on('error', function(err){
+//   console.log('Mongoose Error: ', err);
+// });
 
-db.once('open', function(){
-  console.log('Mongoose connection successful.');
-})
+// db.once('open', function(){
+//   console.log('Mongoose connection successful.');
+// })
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
