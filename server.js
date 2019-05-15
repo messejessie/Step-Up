@@ -9,11 +9,9 @@ mongoose.connect("mongodb://localhost/StepUp", { useNewUrlParser: true , useCrea
 
 let databaseUrl = 'mongodb://localhost/StepUp'
 // Serve up static assets (usually on heroku)
-if (process.env.MONGODB_URI === "production") {
+if (process.env.NODE_ENV === "production") {
   app.use(express.static("step-up/build"));
-} else{
-  mongoose.connect(databaseUrl);
-}
+} 
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
