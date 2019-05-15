@@ -7,11 +7,35 @@ const apiBlogRoutes = require('./routes/api/blog');
 const mongoose = require('mongoose');
 mongoose.connect("mongodb://localhost/StepUp", { useNewUrlParser: true , useCreateIndex: true });
 
-let databaseUrl = 'mongodb://localhost/StepUp'
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("step-up/build"));
-} 
+}
+
+app.use(logger('dev'));
+app.use(bodyParser.urlencoded({
+  extend: false;
+}))
+
+app.use(express.static('public'));
+
+let databaseUrl = 'mongodb://localhost/StepUp';
+
+if(process.env.MONGODB_URI){
+  mongoose.connect(process.env.MONGODB_URI)
+} else {
+  monogoose.connect(databaseUrl)
+}
+
+let db = mongoose.connection;
+
+db.on('error', function(err){
+  console.log('Mongoose Error: ', err);
+});
+
+db.once('open', function(){
+  console.log('Mongoose connection successful.');
+})
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
