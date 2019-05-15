@@ -11,7 +11,6 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("step-up/build"));
 }
 
-app.use(logger('dev'));
 app.use(bodyParser.urlencoded({
   extend: false
 }));
