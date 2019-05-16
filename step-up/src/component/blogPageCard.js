@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   Card, CardText, CardBody,
-  CardTitle, Button
+  CardHeader, Button
 } from 'reactstrap';
 import { Col, Form, FormGroup, Label, Input } from 'reactstrap';
 import "./css/blogPageCard.css";
@@ -13,8 +13,8 @@ const MainBlog = (props) => {
   return (
     <div className="blog-card" >
       <Card >
+      <CardHeader>Get Ready for Battle</CardHeader>
         <CardBody>
-          <CardTitle className="test">Dive into Happiness</CardTitle>
           <CardText>
             <Form>
               <FormGroup row>

@@ -6,7 +6,8 @@ import SignUpForm from '../component/signForm'
 import apiMember from '../utils/apiMember';
 //import MainNav from "../component/nav"
 // import Home from '../src/component/Jumbotron';
-
+import './css/home.css';
+ 
 
 class HomePage extends Component {
   state = {
@@ -81,7 +82,7 @@ class HomePage extends Component {
   render() {
     console.log('the state', this.state);
     return (
-      <div>
+      <div >
         <Modal isOpen={this.state.showLoginModal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>Log In</ModalHeader>
           <ModalBody>
@@ -108,16 +109,18 @@ class HomePage extends Component {
           </ModalBody>
         </Modal>
         <br />
+        <div className ='home'>
         <Jumbotron>
-          <h1 className="display-3">Welcome to Step-Up!</h1>
-          <p className="lead">We are so grateful to have you!</p>
+          <h1 className="display-3">Welcome to Be Brave!</h1>
+          <p className="lead">We are so grateful to have you! </p>
           <hr className="my-2" />
-          <p>Sign up to learn more or Log-In to continue stepping up</p>
+          <p>Sign up to join the fight or Log-In to continue stepping up</p>
           <p className="lead">
-            <Button onClick={this.modalForm}>Log In</Button>
-            <Button onClick={this.signModalForm}>Sign Up</Button>
+            <Button clasName="log" onClick={this.modalForm}>Log In</Button>
+            <Button className="sign" onClick={this.signModalForm}>Sign Up</Button>
           </p>
-        </Jumbotron>
+        </Jumbotron> 
+        </div>
       </div >
     )
   }

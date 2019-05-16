@@ -1,23 +1,29 @@
-const dotenv = require('dotenv').config()
 const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
+const mongoose = require("mongoose")
 const apiMemberRoutes = require('./routes/api/member');
 const apiBlogRoutes = require('./routes/api/blog');
-const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+//import mongoose from 'mongoose';
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("step-up/build"));
 }
 app.use(express.static('public'));
 
-let databaseUrl = 'mongodb://localhost/StepUp';
+
+//let databaseUrl = 'mongodb://localhost/StepUp';
+
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
 if(process.env.MONGODB_URI){
   mongoose.connect(process.env.MONGODB_URI)
 } else {
-  monogoose.connect(databaseUrl, { useNewUrlParser: true , useCreateIndex: true });
+  mongoose.connect("mongodb://localhost/StepUp", { useNewUrlParser: true , useCreateIndex: true });
 
 }
 
