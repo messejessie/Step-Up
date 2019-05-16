@@ -4,6 +4,7 @@ import {
   CardTitle, Button
 } from 'reactstrap';
 import { Redirect } from 'react-router-dom';
+import './css/profileBlogCard.css'
 
 class ProfileBlogCard extends React.Component {
   state = {
@@ -22,7 +23,7 @@ class ProfileBlogCard extends React.Component {
   render() {
     return (
       <div>
-        <Card>
+        <Card className="profileCard">
           <CardBody>
             <CardTitle>Congrats on Today</CardTitle>
             <CardText>Lets Celebrate and Plan for tomorrow or the day!</CardText>
