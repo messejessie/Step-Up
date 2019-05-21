@@ -112,9 +112,9 @@ class HomePage extends Component {
         <div className ='home'>
         <Jumbotron>
           <h1 className="display-3">Welcome to Be Brave!</h1>
-          <p className="lead">We are so grateful to have you! </p>
+          <p className="lead">Be Bold. Be you. Be Brave.</p>
           <hr className="my-2" />
-          <p>Sign up to join the fight or Log-In to continue stepping up</p>
+          <p>Sign up or Log in to be brave</p>
           <p className="lead">
             <Button clasName="log" onClick={this.modalForm}>Log In</Button>
             <Button className="sign" onClick={this.signModalForm}>Sign Up</Button>
