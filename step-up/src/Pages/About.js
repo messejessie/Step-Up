@@ -24,8 +24,11 @@ class About extends React.Component {
       <div>
         <Card>
           <CardBody>
-            <CardTitle>About Step-Up</CardTitle>
-            <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
+            <CardTitle>About Be Brave</CardTitle>
+            <CardText>Welcome to Be Brave! We are really grateful to have you with us today and everyday. This is an application where you can 
+              be grateful, set daily goals and learn more about yourself. Also if you need ot smash out some stuff on to a page because you had a bad
+              day thats ok to. This is a safe space for you to be you, be bold and be brave. So lets get started. 
+            </CardText>
             {this.renderRedirect()}
             <Button onClick={this.setRedirect}>profile</Button>
           </CardBody>
