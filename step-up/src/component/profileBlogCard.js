@@ -4,6 +4,7 @@ import {
   CardTitle, Button
 } from 'reactstrap';
 import { Redirect } from 'react-router-dom';
+
 import './css/profileBlogCard.css'
 
 class ProfileBlogCard extends React.Component {
