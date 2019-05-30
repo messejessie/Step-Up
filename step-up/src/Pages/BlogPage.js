@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 //import BlogForm from '../component/blogForm'
-import MainBlog from '../component/blogPageCard'
+//import MainBlog from '../component/blogPageCard'
 import apiBlog from '../utils/apiBlog';
 //import { throws } from 'assert';
+import { List, ListItem } from "../component/blogList"
+import { Col, Row, Container } from "../component/grid";
+import Jumbotron from "../component/jumbotron";
+import { Input, TextArea, FormBtn } from "../component/Form";
+
 
 class BlogPage extends Component {
     state = {
@@ -49,17 +54,57 @@ class BlogPage extends Component {
 
         console.log(this.props)
         return (
-            <div>
-                <MainBlog
-                    handleChange={this.handleChange}
-                    handleBlog={this.handleBlog}
-                    freeform={this.state.freeform}
-                    goals={this.state.goals}
-                    affirmations={this.state.affirmations}
-                    gratitude={this.state.gratitude}
-                />
-            </div>
-        )
+            <Container fluid>
+              <Row>
+                <Col size="md-6">
+                  <Jumbotron>
+                    <h1>Breathe In...Breathe Out</h1>
+                  </Jumbotron>
+                  <form>
+                    <Input
+                      name="gratitude"
+                      placeholder="Something Your Grateful For"
+                    />
+                      <Input
+                      name="affirmations"
+                      placeholder="Today's Affirmation"
+                    />
+                      <Input
+                      name="goals"
+                      placeholder="Today's Goal"
+                    />
+                    <TextArea 
+                    name="Freeform" 
+                    placeholder="How was today?" 
+                    />
+      
+                  </form>
+                </Col>
+                <Col size="md-6 sm-12">
+                  <Jumbotron>
+                    <h1>Shown progress</h1>
+                  </Jumbotron>
+                  <List>
+                    <ListItem>
+      
+                    </ListItem>
+                  </List>
+                </Col>
+              </Row>
+            </Container>
+          )
+        // return (
+        //     <div>
+        //         <MainBlog
+        //             handleChange={this.handleChange}
+        //             handleBlog={this.handleBlog}
+        //             freeform={this.state.freeform}
+        //             goals={this.state.goals}
+        //             affirmations={this.state.affirmations}
+        //             gratitude={this.state.gratitude}
+        //         />
+        //     </div>
+        // )
     }
 
 }
