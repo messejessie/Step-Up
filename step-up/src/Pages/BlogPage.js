@@ -74,7 +74,7 @@ class BlogPage extends Component {
                       placeholder="Today's Goal"
                     />
                     <TextArea 
-                    name="Freeform" 
+                    name="freeform" 
                     placeholder="How was today?" 
                     />
       
