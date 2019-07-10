@@ -16,6 +16,6 @@ router
   .post(memberController.create)
   .delete(memberController.remove);
 
-  // router.route("/populatedmember")
-  // .get(memberController.getPopulateBlogs);;
+  router.route("/populatedmember")
+  .get(memberController.getMemberPopulateBlogs);;
   module.exports = router;

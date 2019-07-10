@@ -14,9 +14,10 @@ export default {
     console.log('data', data);
     return axios.post("/api/member", data);
   },
-//   getMemberPopulatePostings: function(id){
-//    return axios.get("api/populatedmember");
-//  },
+  
+  getMemberPopulatePostings: function(id){
+   return axios.get("api/populatedmember");
+ },
  
   // Deletes the member with the given id
   deleteMember: function(id) {

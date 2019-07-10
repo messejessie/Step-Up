@@ -64,19 +64,24 @@ class BlogPage extends Component {
               <Input
                 name="gratitude"
                 placeholder="Something Your Grateful For"
+                onChange={this.handleChange}
+               
               />
               <Input
                 name="affirmations"
                 placeholder="Today's Affirmation"
+                onChange={this.handleChange}
               />
               <Input
                 name="goals"
                 placeholder="Today's Goal"
+                onChange={this.handleChange}
               />
               <TextArea
                 name="freeform"
                 placeholder="How was today?"
-                
+                onChange={this.handleChange}
+                                
               />
              <FormBtn  onClick={this.handleBlog}>
                Submit
@@ -88,7 +93,7 @@ class BlogPage extends Component {
             </Jumbotron>
             <List>
               <ListItem>
-
+                
               </ListItem>
             </List>
           </Col>

@@ -15,8 +15,8 @@ router
   .delete(blogController.remove)
   
 
-  // router
-  // .route("/populatemember/:id")
-  // .get(blogController.getMemberPopulateBlogs)
+  router
+  .route("/populatemember/:id")
+  .get(blogController.getPopulateBlog)
 
 module.exports = router;

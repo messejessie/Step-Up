@@ -19,7 +19,7 @@ export default {
     return axios.post("/api/blog/" + memberid, blogData);
   },
 
-//   getPopulateBlog: function (id) {
-//     return axios.get(`/api/blog/populatedmember/${id}`);
-//   },
+  getPopulateBlog: function (id) {
+    return axios.get(`/api/blog/populatedmember/${id}`);
+  },
 };
