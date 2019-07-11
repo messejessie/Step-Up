@@ -12,11 +12,36 @@ import { Input, TextArea, FormBtn } from "../component/Form";
 class BlogPage extends Component {
   state = {
     memberid: '',
+    allBlog: [],
+    memberBlogs: [],
     freeform: '',
     goals: '',
     gratitude: '',
     affirmations: ''
   }
+
+  toggle() {
+    this.setState(prevState => ({
+      modal: !prevState.modal
+    }));
+  }
+ 
+  componentDidMount() {
+    this.loadBlogs();
+    this.loadMemberBlogs();
+  };
+
+  loadBlogs = () => {
+    console.log("at loadblogs")
+    apiBlog.getBlogs("/api/blog")
+      // .then(response => console.log(response));
+      .then(res => this.setState({ allBlogs: res.data }))
+    }
+
+    loadMemberBlogs = () => {
+      apiBlog.getPopulateBlog(this.props.location.state.memberid)
+      .then(res => this.setState({memberBlogs: res.data}))
+    }
 
   handleChange = event => {
     const { name, value } = event.target
@@ -34,21 +59,20 @@ class BlogPage extends Component {
     const blogData = { freeform, goals, gratitude, affirmations }
     const memberid = sessionStorage.getItem('memberid');
     apiBlog.saveBlog(blogData, memberid)
-      .then(response => {
-        //sessionStorage.setItem('authenticated', true)
-        this.setState({
-          memberid: response.data_id,
-        }, () => {
-          this.props.history.push({
-            pathname: '/profile',
-            state: { memberid: 'something' }
-          })
-        })
+      .then(res => this.loadBlogs())
+      .then(res => this.loadMemberBlogs())
+    
 
-        console.log(response)
-      });
+        console.log(blogData);
 
   }
+
+  // handleButtonClick = (allBlog) => {
+  //   console.log(allBlog)
+  //   this.toggle(this.toggle.bind(this))
+  // }
+
+
 
   render() {
 
@@ -65,7 +89,7 @@ class BlogPage extends Component {
                 name="gratitude"
                 placeholder="Something Your Grateful For"
                 onChange={this.handleChange}
-               
+
               />
               <Input
                 name="affirmations"
@@ -81,10 +105,10 @@ class BlogPage extends Component {
                 name="freeform"
                 placeholder="How was today?"
                 onChange={this.handleChange}
-                                
+
               />
-             <FormBtn  onClick={this.handleBlog}>
-               Submit
+              <FormBtn onClick={this.handleBlog}>
+                Submit
              </FormBtn>
             </form>
           </Col>
@@ -92,9 +116,13 @@ class BlogPage extends Component {
             <Jumbotron>
             </Jumbotron>
             <List>
-              <ListItem>
-                
-              </ListItem>
+              {/* {this.state.allBlogs.map(allBlog => ( */}
+                <ListItem> 
+                  {/* key={allBlog._id}> */}
+
+                </ListItem>
+              {/* ))} */}
+
             </List>
           </Col>
         </Row>
@@ -113,7 +141,6 @@ class BlogPage extends Component {
     //     </div>
     // )
   }
-
 }
 
 export default BlogPage; 

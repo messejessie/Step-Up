@@ -15,7 +15,7 @@ export default {
     return axios.post("/api/member", data);
   },
   
-  getMemberPopulatePostings: function(id){
+  getMemberPopulateBlog: function(id){
    return axios.get("api/populatedmember");
  },
  

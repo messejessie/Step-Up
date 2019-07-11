@@ -14,7 +14,7 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     
-    getMemberPopulateBlogs: function (req, res) {
+    getMemberPopulateBlog: function (req, res) {
         db.Author.find({})
           // Specify that we want to populate the retrieved users with any associated notes
           .populate("blog")
